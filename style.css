@@ -1,0 +1,169 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    animation: neonBoxShadow 10s linear infinite;
+}
+
+@keyframes neonBoxShadow {
+0% {
+box-shadow: 0 0 5px #1f3c73, 0 0 10px #1f3c73, 0 0 20px #1f3c73, 0 0 40px #1f3c73, 0 0 60px #1f3c73, 0 0 80px #1f3c73, 0 0 100px #1f3c73;
+}
+50% {
+box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 50px #00ffff, 0 0 70px #00ffff, 0 0 90px #00ffff, 0 0 110px #00ffff;
+}
+100% {
+box-shadow: 0 0 5px #1f3c73, 0 0 10px #1f3c73, 0 0 20px #1f3c73, 0 0 40px #1f3c73, 0 0 60px #1f3c73, 0 0 80px #1f3c73, 0 0 100px #1f3c73;
+}
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+#addNote,
+#toggleTheme {
+    padding: 10px 20px;
+    background-color: #00b4db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#addNote:hover,
+#toggleTheme:hover {
+    background-color: #0083b0;
+    transform: scale(1.1);
+}
+
+#toggleTheme {
+    background-color: #4caf50;
+}
+
+#toggleTheme:hover {
+    background-color: #388e3c;
+}
+
+.note {
+    padding: 10px;
+    margin: 10px 0;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 150px;
+}
+
+.note.light {
+    background: #ffffff;
+    color: #000000;
+}
+
+.note.dark {
+    background: #000000;
+    color: #ffffff;
+}
+
+.note.important {
+    border: 2px solid #ffeb3b;
+    animation: borderAnimation 1s infinite alternate;
+}
+
+@keyframes borderAnimation {
+    0% { border-color: #ffeb3b; }
+    100% { border-color: #ff5722; }
+}
+
+.note:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.note textarea {
+    width: 100%;
+    height: 80px;
+    border: none;
+    background: transparent;
+    color: inherit;
+    resize: none;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.note .controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.note .controls button {
+    cursor: pointer;
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.note .controls button:hover {
+    background-color: #ddd;
+    transform: scale(1.1);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+.circuit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.circuit div {
+    position: absolute;
+    width: 2px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: electricAura 30s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+@keyframes electricAura {
+    0% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(10vw, -10vh) scale(1.2); }
+    40% { transform: translate(-10vw, 20vh) scale(0.8); }
+    60% { transform: translate(15vw, -20vh) scale(1.5); }
+    80% { transform: translate(-15vw, 10vh) scale(1); }
+    100% { transform: translate(0, 0) scale(1.2); }
+}
